@@ -10,7 +10,26 @@ while (running) {
     
     guess = window.prompt(`Guess a number between ${minNUm} - ${maxNum}`);
     guess = Number(guess);
-    console.log(typeof guess, guess);
+
+    if (isNaN(guess)) {
+        window.alert("Please enter a valid number");
+    }
+    else if(guess < minNum || guess > maxNum){
+        window.alert("Please enter a valid number");
+    }
+    else {
+        attempts++;
+        if(guess < answer) {
+            window.alert("TOO LOW! TRY AGAIN!");
+        }
+        else if(guess > answer) {
+            window.alert("TOO HIGH! TRY AGAIN!");
+        }
+        else {
+            window.alert(`CORRECT! The answer was ${answer}. It took ${attempts} attempts`);
+            running = false;
+        }
+    }
     running = false;
 }
 
